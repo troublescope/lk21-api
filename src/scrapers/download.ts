@@ -16,13 +16,13 @@ export const scrapeDownloads = async (
 ): Promise<IDownloads[]> => {
     const $: cheerio.Root = cheerio.load(res.data);
 
-    let downloads: IDownloads[] = [];
+    const downloads: IDownloads[] = [];
 
     $('tbody > tr').each(function (i, el) {
-        let server = $(el).find('strong').text()!;
-        let link = $(el).find('a').attr('href')!;
+        const server = $(el).find('strong').text()!;
+        const link = $(el).find('a').attr('href')!;
         //@ts-ignore
-        let quality = $(el).find('a').attr('class').substring(9, 13);
+        const quality = $(el).find('a').attr('class').substring(9, 13);
         downloads.push({
             server,
             link,

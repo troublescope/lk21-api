@@ -32,7 +32,7 @@ router.get('/top-rated/movies', topRatedMovies);
 router.get('/movies/:id', movieDetails);
 
 router.get('/movies/:id/streams', streamMovie);
-router.get('/movies/:id/download', downloadMovie);
+router.get('/movies/:id/downloads', downloadMovie);
 
 router.get('/genres', setOfGenres);
 router.get('/genres/:genre', moviesByGenre);

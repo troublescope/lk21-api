@@ -4,9 +4,6 @@ import { getCookie, scrapeDownloads } from '@/scrapers/download';
 
 type TController = (req: Request, res: Response, next?: Next) => Promise<void>;
 
-type IData = {
-    slug: string;
-};
 /**
  * Controller for `/movie/:id/downloads` route
  * @param {Request} req
@@ -29,7 +26,7 @@ export const downloadMovie: TController = async (req, res) => {
                     'content-type':
                         'application/x-www-form-urlencoded; charset=UTF-8',
                     'Accept-Encoding': 'application/json',
-                    cookie: cookie,
+                    cookie,
                 },
             }
         );
@@ -49,7 +46,6 @@ export const downloadMovie: TController = async (req, res) => {
  * @param {Response} res
  * @param {Next} next
  */
-
 export const downloadSeries: TController = async (req, res) => {
     try {
         const { originalUrl } = req;
@@ -71,7 +67,7 @@ export const downloadSeries: TController = async (req, res) => {
                     'content-type':
                         'application/x-www-form-urlencoded; charset=UTF-8',
                     'Accept-Encoding': 'application/json',
-                    cookie: cookie,
+                    cookie,
                 },
             }
         );
