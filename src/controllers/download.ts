@@ -19,7 +19,7 @@ export const downloadMovie: TController = async (req, res) => {
         const cookie = await getCookie(movieId);
 
         const axiosRequest = await axios.post(
-            `https://dl.lk21static.xyz/verifying.php`,
+            `${process.env.DL_URL}/verifying.php`,
             { slug: movieId },
             {
                 headers: {
@@ -60,7 +60,7 @@ export const downloadSeries: TController = async (req, res) => {
             `${seriesId}-season-${season}-episode-${episode}-${year}`
         );
         const axiosRequest = await axios.post(
-            `https://dl.lk21static.xyz/verifying.php`,
+            `${process.env.DL_URL}/verifying.php`,
             { slug: `${seriesId}-season-${season}-episode-${episode}-${year}` },
             {
                 headers: {
